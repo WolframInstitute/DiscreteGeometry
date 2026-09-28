@@ -1,6 +1,8 @@
 > ⚠️ **Actively developed, experimental research code.** It undergoes frequent cleanings and refactors, and the API may change without notice.
 
-# Infrageometry
+# DiscreteGeometry
+
+Named `Infrageometry` until 2026-09-28; renamed with 4.0.0, context `WolframInstitute`DiscreteGeometry``. The former name now belongs to the metric paclet, [InfraGeometry](https://github.com/WolframInstitute/InfraGeometry).
 
 Discrete geometry of combinatorial objects — complexes and their closures, hypergraphs, Hodge/Dirac calculus, Green and connection matrices, Lefschetz theory, persistence, simplicial sets and maps, meshes, quantum calculus, and Forman–Ricci curvature.
 
@@ -8,7 +10,7 @@ Nothing here needs a distance. Everything that does now lives in [SyntheticInfra
 
 ## 🎨 Founding Sketch
 
-![Infrageometry](./infra.png)
+![DiscreteGeometry](./infra.png)
 
 ## 📄 License
 
@@ -20,8 +22,8 @@ Nothing here needs a distance. Everything that does now lives in [SyntheticInfra
 Install from the Wolfram Cloud:
 
 ```wolfram
-PacletInstall["https://www.wolframcloud.com/obj/hajek_pavel/Infrageometry.paclet", ForceVersionInstall -> True]
-Needs["WolframInstitute`Infrageometry`"]
+PacletInstall["https://www.wolframcloud.com/obj/hajek_pavel/DiscreteGeometry.paclet", ForceVersionInstall -> True]
+Needs["WolframInstitute`DiscreteGeometry`"]
 ```
 
 

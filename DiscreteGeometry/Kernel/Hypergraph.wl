@@ -1,4 +1,4 @@
-Package["WolframInstitute`Infrageometry`"]
+Package["WolframInstitute`DiscreteGeometry`"]
 
 (* Hypergraph / transaction dataset utilities and analysis helpers *)
 

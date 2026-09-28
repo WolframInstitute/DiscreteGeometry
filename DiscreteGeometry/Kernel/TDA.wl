@@ -1,4 +1,4 @@
-Package["WolframInstitute`Infrageometry`"]
+Package["WolframInstitute`DiscreteGeometry`"]
 
 (* Topological Data Analysis helpers *)
 

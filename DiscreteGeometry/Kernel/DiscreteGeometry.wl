@@ -1,4 +1,4 @@
-Package["WolframInstitute`Infrageometry`"]
+Package["WolframInstitute`DiscreteGeometry`"]
 
 
 PackageExport[ComplexClosure]
@@ -90,7 +90,7 @@ PackageExport[ComplexGeodesics]
 
 
 
-ClearAll["WolframInstitute`Infrageometry`**`*", "WolframInstitute`Infrageometry`*"]
+ClearAll["WolframInstitute`DiscreteGeometry`**`*", "WolframInstitute`DiscreteGeometry`*"]
 
 
 

@@ -312,7 +312,7 @@ Cell[TextData[{
   ButtonBox["ComplexDimensions",
    BaseStyle->"Link",
    ButtonData->
-    "paclet:WolframInstitute/Infrageometry/ref/ComplexDimensions"]], 
+    "paclet:WolframInstitute/DiscreteGeometry/ref/ComplexDimensions"]], 
   "InlineFormula",ExpressionUUID->"c8c944a0-e05f-4242-9e3e-4c1c70553fa3"]
 }], "GuideText",
  CellID->1546673431,ExpressionUUID->"5972e7ee-e752-4ca2-93e3-7b9cbf033986"],
@@ -399,7 +399,7 @@ Cell[TextData[{
   ButtonBox["SimplexCardinalities",
    BaseStyle->"Link",
    ButtonData->
-    "paclet:WolframInstitute/Infrageometry/ref/SimplexCardinalities"]], 
+    "paclet:WolframInstitute/DiscreteGeometry/ref/SimplexCardinalities"]], 
   "InlineFormula",ExpressionUUID->"d8efafb1-5ed2-4dad-b442-42c993e5f747"],
  ") as coefficients"
 }], "GuideText",
@@ -414,7 +414,7 @@ Cell[TextData[{
  Cell[BoxData[
   ButtonBox["BettiVector",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/BettiVector"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/BettiVector"]], 
   "InlineFormula",ExpressionUUID->"f821db90-d3b0-4621-ba4c-65d13c1ec604"],
  ") as coefficients"
 }], "GuideText",
@@ -432,7 +432,7 @@ Cell[TextData[{
     ButtonBox["ComplexPolynomial",
      BaseStyle->"Link",
      ButtonData->
-      "paclet:WolframInstitute/Infrageometry/ref/ComplexPolynomial"]}], 
+      "paclet:WolframInstitute/DiscreteGeometry/ref/ComplexPolynomial"]}], 
    TraditionalForm]], "InlineMath",ExpressionUUID->
   "20007854-6320-4ca8-a10b-ace464b3a934"],
  " "
@@ -448,14 +448,14 @@ Cell[TextData[{
  Cell[BoxData[
   ButtonBox["ComplexCurvature",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/ComplexCurvature"]],
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/ComplexCurvature"]],
    "InlineFormula",ExpressionUUID->"76375e77-107d-408e-8d40-aba72d80ae90"],
  " of ",
  Cell[BoxData[
   ButtonBox["ComplexUnitSphere",
    BaseStyle->"Link",
    ButtonData->
-    "paclet:WolframInstitute/Infrageometry/ref/ComplexUnitSphere"]], 
+    "paclet:WolframInstitute/DiscreteGeometry/ref/ComplexUnitSphere"]], 
   "InlineFormula",ExpressionUUID->"cfdc67eb-67a4-4a9e-9de4-affa6f47420e"],
  "s "
 }], "GuideText",
@@ -518,7 +518,7 @@ Cell[TextData[{
  Cell[BoxData[
   ButtonBox["GraphComplex",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/GraphComplex"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/GraphComplex"]], 
   "InlineFormula",ExpressionUUID->"a07c5350-a282-415d-93e0-3bf75dc9a945"],
  "[g, 2]"
 }], "GuideText",
@@ -560,13 +560,13 @@ Cell[TextData[{
  Cell[BoxData[
   ButtonBox["SimplexStar",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/SimplexStar"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/SimplexStar"]], 
   "InlineFormula",ExpressionUUID->"76a72033-bf51-49aa-b32e-d97cb348019c"],
  "s of its ",
  Cell[BoxData[
   ButtonBox["GraphComplex",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/GraphComplex"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/GraphComplex"]], 
   "InlineFormula",ExpressionUUID->"3ee5d595-127c-48df-a7a1-1b1013de91b6"],
  ")"
 }], "GuideText",
@@ -581,13 +581,13 @@ Cell[TextData[{
  Cell[BoxData[
   ButtonBox["MatrixNullity",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/MatrixNullity"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/MatrixNullity"]], 
   "InlineFormula",ExpressionUUID->"1791cd6f-bb88-49f7-ac99-0c9239e6f754"],
  " for each ",
  Cell[BoxData[
   ButtonBox["HodgeMatrix",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/HodgeMatrix"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/HodgeMatrix"]], 
   "InlineFormula",ExpressionUUID->"43ec2490-9ede-4cc1-91b6-720092644f59"],
  " block"
 }], "GuideText",
@@ -620,7 +620,7 @@ Cell[TextData[{
  Cell[BoxData[
   ButtonBox["SimplexIndex",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/SimplexIndex"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/SimplexIndex"]], 
   "InlineFormula",ExpressionUUID->"6a9a6def-f330-493c-ac86-2bd3b114313f"]
 }], "GuideText",
  CellID->319055113,ExpressionUUID->"a4ec40b4-1478-4036-a30d-d9df6e09bdd1"],
@@ -638,7 +638,7 @@ Cell[TextData[{
  Cell[BoxData[
   ButtonBox["SimplexSign",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/SimplexSign"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/SimplexSign"]], 
   "InlineFormula",ExpressionUUID->"109b01e6-619d-4c7d-8d49-e2d43cc2786a"]
 }], "GuideText",
  CellID->827961412,ExpressionUUID->"733860a4-33d8-4fca-98ac-7309ccf633e8"],
@@ -652,7 +652,7 @@ Cell[TextData[{
  Cell[BoxData[
   ButtonBox["SignMatrix",
    BaseStyle->"Link",
-   ButtonData->"paclet:WolframInstitute/Infrageometry/ref/SignMatrix"]], 
+   ButtonData->"paclet:WolframInstitute/DiscreteGeometry/ref/SignMatrix"]], 
   "InlineFormula",ExpressionUUID->"9be86df2-a6df-4043-ab1c-6461058b0204"],
  " between ",
  Cell[BoxData[
@@ -1285,15 +1285,15 @@ Cell["Guide", "Categorization",
  CellLabel->"Entity Type",
  CellID->1322159780,ExpressionUUID->"c4be081b-5e5e-44b0-bca2-0b4c26549125"],
 
-Cell["WolframInstitute/Infrageometry", "Categorization",
+Cell["WolframInstitute/DiscreteGeometry", "Categorization",
  CellLabel->"Paclet Name",
  CellID->1526126951,ExpressionUUID->"1e109116-2de5-4811-aa2d-d834080c01c9"],
 
-Cell["WolframInstitute`Infrageometry`", "Categorization",
+Cell["WolframInstitute`DiscreteGeometry`", "Categorization",
  CellLabel->"Context",
  CellID->70985689,ExpressionUUID->"c3689193-2cc9-4013-88e9-460b17815590"],
 
-Cell["WolframInstitute/Infrageometry/guide/DiscreteGeometry", "Categorization",
+Cell["WolframInstitute/DiscreteGeometry/guide/DiscreteGeometry", "Categorization",
  CellLabel->"URI",
  CellID->1203050938,ExpressionUUID->"21103066-262c-499f-84ba-aa11c08dd54c"]
 }, Closed]],
@@ -1310,7 +1310,7 @@ Cell["XXXX", "Keywords",
 },
 WindowSize->{846, 1013},
 WindowMargins->{{Automatic, 4}, {Automatic, 4}},
-TaggingRules-><|"Paclet" -> "WolframInstitute/Infrageometry"|>,
+TaggingRules-><|"Paclet" -> "WolframInstitute/DiscreteGeometry"|>,
 FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
   CharacterEncoding -> "UTF-8"],

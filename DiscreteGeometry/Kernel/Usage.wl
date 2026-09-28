@@ -1,4 +1,4 @@
-Package["WolframInstitute`Infrageometry`"]
+Package["WolframInstitute`DiscreteGeometry`"]
 
 (* Usage messages for exported symbols. Experimental functions are marked (experimental). *)
 

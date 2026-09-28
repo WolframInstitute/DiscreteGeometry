@@ -1,13 +1,13 @@
 #!/usr/bin/env wolframscript
 
-(* run_tests.wls — Run Infrageometry paclet test suite *)
+(* run_tests.wls — Run DiscreteGeometry paclet test suite *)
 
 $pacletDir = DirectoryName[$InputFileName];
 
-PacletDirectoryLoad[$pacletDir <> "/Infrageometry"];
-Needs["WolframInstitute`Infrageometry`"];
+PacletDirectoryLoad[$pacletDir <> "/DiscreteGeometry"];
+Needs["WolframInstitute`DiscreteGeometry`"];
 
-$testFiles = FileNames["*.wlt", FileNameJoin[{$pacletDir, "Infrageometry", "Tests"}]];
+$testFiles = FileNames["*.wlt", FileNameJoin[{$pacletDir, "DiscreteGeometry", "Tests"}]];
 
 Print["Running ", Length[$testFiles], " test file(s):"];
 Scan[Print["  ", FileNameTake[#]] &, $testFiles];

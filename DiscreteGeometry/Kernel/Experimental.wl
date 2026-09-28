@@ -1,4 +1,4 @@
-Package["WolframInstitute`Infrageometry`"]
+Package["WolframInstitute`DiscreteGeometry`"]
 
 (* Experimental / provisional API. Subject to change. *)
 

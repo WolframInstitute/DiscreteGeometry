@@ -1,4 +1,4 @@
-BeginTestSection["InfrageometryTests"]
+BeginTestSection["DiscreteGeometryTests"]
 
 (* ===== Test Fixtures ===== *)
 

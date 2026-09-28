@@ -1,5 +1,5 @@
 (* ::Package:: *)
-Package["WolframInstitute`Infrageometry`"]
+Package["WolframInstitute`DiscreteGeometry`"]
 
 PackageExport["SimplicialData"]
 PackageExport["SimplicialSet"]

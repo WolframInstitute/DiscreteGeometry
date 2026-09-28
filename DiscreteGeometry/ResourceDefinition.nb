@@ -1,7 +1,7 @@
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["WolframInstitute/Infrageometry", "Title",
+Cell["WolframInstitute/DiscreteGeometry", "Title",
  Deletable->False,
  CellTags->{"Name", "TemplateCell", "Title"},
  CellID->319353165,ExpressionUUID->"1036d208-d8a1-4928-9826-f349fc933227"],
@@ -105,14 +105,14 @@ Cell[TextData[Cell[BoxData[
 Cell[BoxData[
  InterpretationBox[
   TagBox[
-   TemplateBox[{"\"Infrageometry.wl\"", 
+   TemplateBox[{"\"DiscreteGeometry.wl\"", 
      FileNameJoin[{
-       NotebookDirectory[], "Kernel", "Infrageometry.wl"}]},
+       NotebookDirectory[], "Kernel", "DiscreteGeometry.wl"}]},
     "FileManagerFileOpenerTemplate"],
    Annotation[#, 
     DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[1]]& ],
   FileNameJoin[{
-    NotebookDirectory[], "Kernel", "Infrageometry.wl"}],
+    NotebookDirectory[], "Kernel", "DiscreteGeometry.wl"}],
   BoxID -> "FileTreePath",
   BaseStyle->{"Text"}]], "FileManagerFile",
  CellMargins->{{23 + Inherited, Inherited}, {Inherited, Inherited}},
@@ -455,7 +455,7 @@ for your paclet."}], "MoreInfoText"], Background -> GrayLevel[0.95],
  CellTags->{"Primary Context", "PrimaryContext", "TemplateCellGroup"},
  CellID->944769214,ExpressionUUID->"927beea9-d8fc-4b6c-a773-322739e0fea2"],
 
-Cell["WolframInstitute`Infrageometry`", "Text",
+Cell["WolframInstitute`DiscreteGeometry`", "Text",
  CellID->2062914909,ExpressionUUID->"c428987a-65ef-437f-bfba-67aaaffaae4f"]
 }, Open  ]],
 
@@ -592,7 +592,7 @@ Cell[BoxData[
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"Needs", "[", "\"\<WolframInstitute`Infrageometry`\>\"", "]"}], 
+  RowBox[{"Needs", "[", "\"\<WolframInstitute`DiscreteGeometry`\>\"", "]"}], 
   ";"}]], "Input", "Excluded",
  InitializationCell->True,
  CellID->814364577,ExpressionUUID->"10d51554-a027-4b2b-881b-0f9e0002adae"]
@@ -5574,7 +5574,7 @@ Cell["Additional information about limitations, issues, etc.", "Text",
 },
 WindowSize->{1091, Automatic},
 WindowMargins->{{Automatic, 289}, {Automatic, 32}},
-WindowTitle->"Infrageometry | Definition Notebook",
+WindowTitle->"DiscreteGeometry | Definition Notebook",
 LightDark->"Light",
 TaggingRules->{
  "ResourceType" -> "Paclet", "ResourceCreateNotebook" -> True, 

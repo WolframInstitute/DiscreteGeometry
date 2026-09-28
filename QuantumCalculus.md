@@ -2,7 +2,7 @@
 
 > Source: [quantumcalculus.org](https://www.quantumcalculus.org/) — Oliver Knill (Harvard)
 >
-> Purpose: map Knill's discrete geometry program onto our **Infrageometry** paclet, identify
+> Purpose: map Knill's discrete geometry program onto our **DiscreteGeometry** paclet (named Infrageometry until 2026-09-28), identify
 > what we already implement, and catalogue what we should adapt next.
 
 ---
@@ -29,9 +29,9 @@ Key mantras:
 
 ---
 
-## 2. Existing Infrageometry Coverage
+## 2. Existing DiscreteGeometry Coverage
 
-Our `Infrageometry.wl` (351 lines) already implements the following Knill-originating concepts:
+Our `DiscreteGeometry.wl` (351 lines) already implements the following Knill-originating concepts:
 
 | Knill Concept | Our Function(s) | Status |
 |---|---|---|
@@ -292,7 +292,7 @@ number of top-dimensional faces — related to coloring problems.
 
 ## 4. Recommended Priority Order
 
-Based on how directly the concepts extend our existing `Infrageometry.wl`:
+Based on how directly the concepts extend our existing `DiscreteGeometry.wl`:
 
 1. **Wave Equation** (§3.1) — immediate: just matrix cos/sinc on our existing Dirac/Hodge matrices
 2. **Wu Characteristic** (§3.6) — pure combinatorics, extends our Euler/Fermi characteristic pair
@@ -372,6 +372,6 @@ Green[G_] := Table[
   {i, L[G]}, {j, L[G]}];
 ```
 
-These map almost 1-to-1 onto our Infrageometry functions, confirming we have the right
+These map almost 1-to-1 onto our DiscreteGeometry functions, confirming we have the right
 foundations. The adaptations above would extend this core into *dynamics* (wave, deformation,
 geodesic gas) and *higher invariants* (Wu, zeta, torsion).
