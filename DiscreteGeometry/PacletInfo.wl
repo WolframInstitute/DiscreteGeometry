@@ -3,7 +3,7 @@ PacletObject[
     "Name" -> "WolframInstitute/DiscreteGeometry",
     "Description" -> "Discrete geometry of combinatorial objects",
     "Creator" -> "Nikolay Murzin",
-    "Version" -> "4.0.0",
+    "Version" -> "4.1.0",
     "WolframVersion" -> "14.3+",
     "PublisherID" -> "WolframInstitute",
     "License" -> "MIT",
