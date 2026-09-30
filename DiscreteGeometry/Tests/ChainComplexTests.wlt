@@ -200,4 +200,77 @@ VerificationTest[
   TestID -> "SimplicialSet-SquareZero"
 ]
 
+(* ===== Dirac and Hodge on the head ===== *)
+
+diagonalBlocks[ matrix_, dimensions_ ] := Take[ matrix, #, # ] & /@ ( Transpose[ { Most[ # ] + 1, Rest[ # ] } ] & @ Prepend[ Accumulate @ dimensions, 0 ] )
+
+degreeLabels[ dimensions_ ] := Flatten @ MapIndexed[ ConstantArray[ First @ #2, #1 ] &, dimensions ]
+
+diagonalWeights[ cc_ ] := ( 1 + Mod[ Range[ # ], 3 ] ) & /@ cc[ "Dimensions" ]
+
+tridiagonalWeights[ cc_ ] := ( 3 IdentityMatrix[ #, SparseArray ] + SparseArray[ { Band[ { 1, 2 } ] -> 1, Band[ { 2, 1 } ] -> 1 }, { #, # } ] ) & /@ cc[ "Dimensions" ]
+
+(* d^2 = 0 makes D^2 block diagonal *)
+VerificationTest[
+  With[ { cc = ChainComplex @ triangulatedTorus[ 4 ] },
+    Table[
+      With[ { laplacian = Normal @ HodgeLaplacianMatrix[ cc, weights ], labels = degreeLabels @ cc[ "Dimensions" ] },
+        laplacian == laplacian Outer[ Boole[ #1 == #2 ] &, labels, labels ] ],
+      { weights, { ConstantArray[ 1, # ] & /@ cc[ "Dimensions" ], diagonalWeights @ cc, tridiagonalWeights @ cc } } ] ],
+  { True, True, True },
+  TestID -> "HodgeLaplacian-BlockDiagonal"
+]
+
+(* D = d + d^* is self-adjoint for the inner product M = M_0 (+) M_1 (+) ... *)
+VerificationTest[
+  With[ { cc = ChainComplex @ ComplexClosure @ projectivePlane },
+    Table[
+      With[ { metric = SparseArray @ ArrayFlatten @ Table[ If[ i == j, If[ VectorQ @ weights[[ i ]], DiagonalMatrix @ weights[[ i ]], weights[[ i ]] ], 0 ], { i, Length @ weights }, { j, Length @ weights } ] },
+        With[ { form = Normal[ metric . DiracBlockMatrix[ cc, weights ] ] }, form == Transpose @ form ] ],
+      { weights, { diagonalWeights @ cc, tridiagonalWeights @ cc } } ] ],
+  { True, True },
+  TestID -> "DiracBlockMatrix-SelfAdjoint"
+]
+
+(* the unweighted limit is Nikolay's d + d^T on a complex in canonical order *)
+VerificationTest[
+  With[ { complex = ComplexClosure @ projectivePlane },
+    { Normal @ DiracBlockMatrix @ ChainComplex @ complex == Normal @ DiracHodgeMatrix @ complex,
+      Normal @ HodgeLaplacianMatrix @ ChainComplex @ complex == Normal[ DiracHodgeMatrix[ complex ] . DiracHodgeMatrix[ complex ] ] } ],
+  { True, True },
+  TestID -> "Dirac-UnweightedLimit"
+]
+
+VerificationTest[
+  With[ { cc = ChainComplex @ triangulatedTorus[ 4 ] },
+    Normal @ HodgeLaplacianMatrix[ cc, ConstantArray[ 1, # ] & /@ cc[ "Dimensions" ] ] == Normal @ HodgeLaplacianMatrix @ cc ],
+  True,
+  TestID -> "HodgeLaplacian-UnitWeights"
+]
+
+(* Hodge decomposition C_k = im d_(k+1) (+) im d_k^* (+) ker Delta_k: rank Delta_k = rank d_k + rank d_(k+1) *)
+VerificationTest[
+  With[ { cc = ChainComplex @ triangulatedTorus[ 4 ] },
+    With[ { ranks = Join[ { 0 }, MatrixRank /@ cc[ "BoundaryMatrices" ], { 0 } ] },
+      Table[ MatrixRank /@ diagonalBlocks[ HodgeLaplacianMatrix[ cc, weights ], cc[ "Dimensions" ] ] == Most @ ranks + Rest @ ranks,
+        { weights, { diagonalWeights @ cc, tridiagonalWeights @ cc } } ] ] ],
+  { True, True },
+  TestID -> "HodgeDecomposition-Ranks"
+]
+
+(* harmonic chains see homology whatever the inner products *)
+VerificationTest[
+  Table[
+    With[ { cc = ChainComplex @ complex }, { BettiVector @ cc, BettiVector[ cc, diagonalWeights @ cc ], BettiVector[ cc, tridiagonalWeights @ cc ] } == ConstantArray[ BettiNumbers @ cc, 3 ] ],
+    { complex, { CycleGraph[ 6 ], TorusGraph[ { 4, 4 } ], triangulatedTorus[ 4 ], PetersenGraph[ ], ComplexClosure @ projectivePlane } } ],
+  { True, True, True, True, True },
+  TestID -> "BettiVector-HarmonicChains"
+]
+
+VerificationTest[
+  { BettiVector @ CycleGraph[ 6 ], BettiVector @ triangulatedTorus[ 4 ], BettiVector @ SimplicialSet[ { { 1, 2, 3 } } ] },
+  { { 1, 1 }, { 1, 2, 1 }, { 1, 0, 0 } },
+  TestID -> "BettiVector-Adapters"
+]
+
 EndTestSection[]

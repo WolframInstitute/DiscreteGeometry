@@ -66,14 +66,14 @@ GreenOperatorMatrix::usage = "GreenOperatorMatrix[g] returns the Moore-Penrose p
 HodgePropagatorMatrix::usage = "HodgePropagatorMatrix[g, k] returns the Moore-Penrose pseudoinverse of the boundary operator d_k = ComplexIncidenceMatrix[g, k], computed as (d_k^T d_k)^+ d_k^T. HodgePropagatorMatrix[g, All] returns the list over k = 0..ComplexDimension[g] - 1.";
 DiracHodgeMatrix::usage = "DiracHodgeMatrix[g] returns d + d^T for the simplicial complex g.";
 DiracConnectionMatrix::usage = "DiracConnectionMatrix[g] returns L + L^T for connection matrix L.";
-DiracBlockMatrix::usage = "DiracBlockMatrix[g] is block diagonal with incidence blocks.";
+DiracBlockMatrix::usage = "DiracBlockMatrix[g] is block diagonal with incidence blocks. DiracBlockMatrix[cc] for a ChainComplex cc (or a graph, or SimplicialData) is the Dirac operator D = d + d^* on the direct sum of the chain groups, as a sparse matrix. DiracBlockMatrix[cc, {m0, m1, ...}] takes the adjoint with respect to one inner product per degree, each a positive definite matrix or the vector of its diagonal.";
 DiracDualBlockMatrix::usage = "DiracDualBlockMatrix[g] is dual block diagonal with transposed incidence products.";
 DiracColumns::usage = "DiracColumns[g] partitions DiracHodgeMatrix columns by simplex dimensions.";
 DiracDualColumns::usage = "DiracDualColumns[g] returns transposed column blocks of DiracHodgeMatrix.";
 HodgeBlock::usage = "HodgeBlock[g] returns (d + d^T)^2 for complex g (global, not partitioned).";
 HodgeMatrix::usage = "HodgeMatrix[g] returns block-diagonal Hodge Laplacian matrices by dimension.";
-HodgeLaplacianMatrix::usage = "HodgeLaplacianMatrix[g] returns the block form (d^T d + d d^T) aggregated as DiracBlockMatrix^2.";
-BettiVector::usage = "BettiVector[g] returns Betti numbers (nullities) for each dimension of g.";
+HodgeLaplacianMatrix::usage = "HodgeLaplacianMatrix[g] returns the block form (d^T d + d d^T) aggregated as DiracBlockMatrix^2. HodgeLaplacianMatrix[cc] for a ChainComplex cc (or a graph, or SimplicialData) is D^2, block diagonal with the Hodge Laplacians d_k^* d_k + d_(k+1) d_(k+1)^*. HodgeLaplacianMatrix[cc, {m0, m1, ...}] is the weighted version, one inner product per degree.";
+BettiVector::usage = "BettiVector[g] returns Betti numbers (nullities) for each dimension of g. BettiVector[cc] and BettiVector[cc, {m0, m1, ...}] are the nullities of the Hodge Laplacian blocks of a ChainComplex cc.";
 
 MatrixBlocks::usage = "MatrixBlocks[m, blocks] splits square matrix m into block submatrices according to cardinalities blocks.";
 MatrixNullity::usage = "MatrixNullity[m] gives the dimension of the null space of square matrix m.";
