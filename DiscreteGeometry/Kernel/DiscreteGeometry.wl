@@ -340,6 +340,33 @@ HodgePropagatorMatrix[g : {___List}, All] :=
 BettiVector[g : {___List}] := MatrixNullity /@ HodgeMatrix[g]["Blocks"]
 
 
+(* the Dirac operator D = d + d^* on C_0 (+) ... (+) C_n; d_k^* = M_k^-1 d_k^T M_(k-1) for inner products M_k on C_k,
+   given as matrices or as diagonals *)
+DiracBlockMatrix[ ChainComplex[ boundaries : { __ ? MatrixQ } ], weights_List ] :=
+  With[
+    { metrics = If[ VectorQ @ #, DiagonalMatrix @ SparseArray @ #, SparseArray @ # ] & /@ weights },
+    { adjoints = MapThread[ { d, lower, upper } |-> LinearSolve[ upper, Transpose[ d ] . lower ], { boundaries, Most @ metrics, Rest @ metrics } ] },
+    SparseArray @ ArrayFlatten @ Table[
+      Which[ q == p + 1, boundaries[[ p ]], p == q + 1, adjoints[[ q ]], True, 0 ],
+      { p, Length @ metrics }, { q, Length @ metrics } ]
+  ]
+
+DiracBlockMatrix[ cc : ChainComplex[ { __ ? MatrixQ } ] ] :=
+  DiracBlockMatrix[ cc, ConstantArray[ 1, # ] & /@ cc[ "Dimensions" ] ]
+
+(* the Hodge Laplacian D^2, block diagonal with Delta_k = d_k^* d_k + d_(k+1) d_(k+1)^* since d^2 = 0 *)
+HodgeLaplacianMatrix[ cc : ChainComplex[ { __ ? MatrixQ } ], weights___List ] :=
+  With[ { dirac = DiracBlockMatrix[ cc, weights ] }, dirac . dirac ]
+
+(* b_k = dim ker Delta_k, for any choice of inner products *)
+BettiVector[ cc : ChainComplex[ { __ ? MatrixQ } ], weights___List ] :=
+  MatrixNullity /@ MatrixBlocks[ HodgeLaplacianMatrix[ cc, weights ], cc[ "Dimensions" ] ]
+
+Scan[
+  reader |-> ( reader[ complex : _Graph | _SimplicialData, weights___List ] := reader[ ChainComplex @ complex, weights ] ),
+  { DiracBlockMatrix, HodgeLaplacianMatrix, BettiVector } ]
+
+
 
 TakeBlocks[blocks : {__Integer}] := Threaded[{1, 0}] + Partition[Prepend[Accumulate[blocks], 0], 2, 1]
 

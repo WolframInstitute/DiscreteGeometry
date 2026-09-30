@@ -66,14 +66,14 @@ GreenOperatorMatrix::usage = "GreenOperatorMatrix[g] returns the Moore-Penrose p
 HodgePropagatorMatrix::usage = "HodgePropagatorMatrix[g, k] returns the Moore-Penrose pseudoinverse of the boundary operator d_k = ComplexIncidenceMatrix[g, k], computed as (d_k^T d_k)^+ d_k^T. HodgePropagatorMatrix[g, All] returns the list over k = 0..ComplexDimension[g] - 1.";
 DiracHodgeMatrix::usage = "DiracHodgeMatrix[g] returns d + d^T for the simplicial complex g.";
 DiracConnectionMatrix::usage = "DiracConnectionMatrix[g] returns L + L^T for connection matrix L.";
-DiracBlockMatrix::usage = "DiracBlockMatrix[g] is block diagonal with incidence blocks.";
+DiracBlockMatrix::usage = "DiracBlockMatrix[g] is block diagonal with incidence blocks. DiracBlockMatrix[cc] for a ChainComplex cc (or a graph, or SimplicialData) is the Dirac operator D = d + d^* on the direct sum of the chain groups, as a sparse matrix. DiracBlockMatrix[cc, {m0, m1, ...}] takes the adjoint with respect to one inner product per degree, each a positive definite matrix or the vector of its diagonal.";
 DiracDualBlockMatrix::usage = "DiracDualBlockMatrix[g] is dual block diagonal with transposed incidence products.";
 DiracColumns::usage = "DiracColumns[g] partitions DiracHodgeMatrix columns by simplex dimensions.";
 DiracDualColumns::usage = "DiracDualColumns[g] returns transposed column blocks of DiracHodgeMatrix.";
 HodgeBlock::usage = "HodgeBlock[g] returns (d + d^T)^2 for complex g (global, not partitioned).";
 HodgeMatrix::usage = "HodgeMatrix[g] returns block-diagonal Hodge Laplacian matrices by dimension.";
-HodgeLaplacianMatrix::usage = "HodgeLaplacianMatrix[g] returns the block form (d^T d + d d^T) aggregated as DiracBlockMatrix^2.";
-BettiVector::usage = "BettiVector[g] returns Betti numbers (nullities) for each dimension of g.";
+HodgeLaplacianMatrix::usage = "HodgeLaplacianMatrix[g] returns the block form (d^T d + d d^T) aggregated as DiracBlockMatrix^2. HodgeLaplacianMatrix[cc] for a ChainComplex cc (or a graph, or SimplicialData) is D^2, block diagonal with the Hodge Laplacians d_k^* d_k + d_(k+1) d_(k+1)^*. HodgeLaplacianMatrix[cc, {m0, m1, ...}] is the weighted version, one inner product per degree.";
+BettiVector::usage = "BettiVector[g] returns Betti numbers (nullities) for each dimension of g. BettiVector[cc] and BettiVector[cc, {m0, m1, ...}] are the nullities of the Hodge Laplacian blocks of a ChainComplex cc.";
 
 MatrixBlocks::usage = "MatrixBlocks[m, blocks] splits square matrix m into block submatrices according to cardinalities blocks.";
 MatrixNullity::usage = "MatrixNullity[m] gives the dimension of the null space of square matrix m.";
@@ -155,6 +155,17 @@ SimplicialSet::usage = "SimplicialSet[simplices] constructs the minimal simplici
 SimplicialSetQ::usage = "SimplicialSetQ[sd] checks if the given simplicial data form a valid simplicial set (face and degeneracy maps satisfy simplicial identities).";
 DeltaComplexQ::usage = "DeltaComplexQ[sd] checks if the given simplicial data form a Delta-complex (face maps satisfy simplicial identities, all degeneracy maps are zero).";
 SimplicialComplexQ::usage = "SimplicialComplexQ[sd] checks if the given simplicial data form a simplicial complex (each simplex has a unique combination of boundary elements).";
+
+(* ChainComplex.wl -- the names and conventions of PureMath's ChainComplex *)
+ChainComplex::usage = "ChainComplex[{d1, d2, ...}] represents a chain complex by its boundary matrices, d_k : C_k -> C_(k-1) an n_(k-1) x n_k matrix. ChainComplex[complex] gives the simplicial chain complex of a list of simplices, closed under faces: C_k has the sorted k-simplices as basis in canonical order, and d_k is sparse with d_k sigma = Sum_i (-1)^i (sigma without its i-th vertex). ChainComplex[g] gives the chain complex of the clique complex of the graph g, on the vertices renumbered 1, 2, ... in VertexList order. ChainComplex[SimplicialData[...]] gives the normalized chain complex (nondegenerate simplices, d_k = Sum_i (-1)^i d_i); it stays unevaluated when an empty normalized level lies below a nonempty one. Properties: cc[\"BoundaryMatrices\"], cc[\"Length\"], cc[\"Dimensions\"] (the ranks n_0, n_1, ... of the chain groups).";
+CochainComplex::usage = "CochainComplex[{d0, d1, ...}] represents a cochain complex by its coboundary matrices, d^k : C^k -> C^(k+1). CochainComplex[cc] gives the dual of the chain complex cc, d^k = Transpose[d_(k+1)]; CochainComplex[complex] and CochainComplex[g] dualize ChainComplex[complex] and ChainComplex[g]. Properties: \"CoboundaryMatrices\", \"Length\".";
+ChainComplexQ::usage = "ChainComplexQ[expr] gives True if expr is a ChainComplex whose boundary matrices have compatible dimensions and compose to zero, d_(k-1) . d_k = 0, and False otherwise.";
+BoundaryMap::usage = "BoundaryMap[cc, n] gives the boundary matrix d_n : C_n -> C_(n-1) of a chain complex, 1 <= n <= cc[\"Length\"]. BoundaryMap[CochainComplex[...], n] gives the coboundary d^n : C^n -> C^(n+1), 0-indexed. BoundaryMap[complex, n] and BoundaryMap[g, n] read ChainComplex[complex] and ChainComplex[g].";
+Homology::usage = "Homology[cc, n] gives the n-th integral homology group H_n = ker d_n / im d_(n+1) as the pair {rank, torsion}, standing for Z^rank (+) Z/t_1 (+) Z/t_2 (+) ...; above the top degree it is {0, {}}. Also Homology[complex, n], Homology[g, n], Homology[SimplicialData[...], n].";
+HomologyGroups::usage = "HomologyGroups[cc] gives the integral homology of a chain complex as an association <|k -> {b_k, torsion_k}|>, k = 0, ..., cc[\"Length\"]: b_k = n_k - rank d_k - rank d_(k+1), and torsion_k the invariant factors > 1 of d_(k+1) (Smith normal form). Also HomologyGroups[complex], HomologyGroups[g], HomologyGroups[SimplicialData[...]].";
+HomologyRank::usage = "HomologyRank[cc, n] gives the Betti number b_n = n_n - rank d_n - rank d_(n+1), the rank of H_n; 0 above the top degree. Also on a complex, a graph or SimplicialData.";
+BettiNumbers::usage = "BettiNumbers[cc] gives the Betti numbers {b_0, b_1, ..., b_D} of a chain complex, the ranks of its homology over the rationals, from matrix ranks alone. Also BettiNumbers[complex], BettiNumbers[g] (the clique complex), BettiNumbers[SimplicialData[...]].";
+ReducedHomology::usage = "ReducedHomology[cc] gives the reduced integral homology, the homology of the complex augmented by C_0 -> Z, as an association <|k -> {b_k, torsion_k}|>; it differs from HomologyGroups only by one less free summand in degree 0. Also on a complex, a graph or SimplicialData.";
 
 BettiTable::usage = "BettiTable[data, radii, opts] returns <| 'Radii'->rlist, 'Betti'->matrix, 'Dimensions'->{d0,...} |> constructed from BettiCurves. Options: passes through MaxDimension -> k (default Automatic=all).";
 BettiCurves::usage = "BettiCurves[data, radii, opts] returns an association r -> {b0,b1,...}. Option MaxDimension->k truncates vectors (Automatic = all).";
