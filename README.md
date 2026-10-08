@@ -1,38 +1,31 @@
-> ⚠️ **Actively developed, experimental research code.** It undergoes frequent cleanings and refactors, and the API may change without notice.
+> ⚠️ Actively developed, experimental research code. The API may change without notice.
 
-# DiscreteGeometry
-
-Named `Infrageometry` until 2026-09-28; renamed with 4.0.0, context `WolframInstitute`DiscreteGeometry``. The former name now belongs to the metric paclet, [InfraGeometry](https://github.com/WolframInstitute/InfraGeometry).
-
-Discrete geometry of combinatorial objects — complexes and their closures, hypergraphs, Hodge/Dirac calculus, Green and connection matrices, Lefschetz theory, persistence, simplicial sets and maps, meshes, quantum calculus, and Forman–Ricci curvature.
-
-Nothing here needs a distance. Everything that does now lives in [SyntheticInfrageometry](https://github.com/WolframInstitute/SyntheticInfrageometry): the **metric** layer — balls, shells, tubes, volume growth, Ollivier curvature, resistance, coordinatization, displacements, tessellations, `InfraSubstrate` — left in **2.0.0**, and the **calculus on complexes** — differential forms and cochains, the ball-intersection complexes and their filtrations — in **3.0.0** (both 2026-09-22). The two paclets are independent; neither imports the other.
-
-## 🎨 Founding Sketch
+# 🔺 Discrete Geometry
 
 ![DiscreteGeometry](./infra.png)
 
-## 📄 License
+Geometry and topology of combinatorial objects built from graphs.
 
-- **Code**: [MIT](https://opensource.org/license/mit)
-- **Research notebooks and ideas**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+Here the full combinatorial structure is used, in contrast to [InfraGeometry](https://github.com/WolframInstitute/InfraGeometry), which concentrates on geometry emerging from aggregation at large scale. This repo can be thought of as the smallest scale part of this effort.
 
-## ✨ Usage
+📖 [**Wolfram Paclet Documentation**](https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/WolframInstitute/DiscreteGeometry)
 
-Install from the Wolfram Cloud:
+## 🎯 Goals
 
-```wolfram
+- ⛓️ Collect standard methods of chain complexes from graphs.
+- 📐 Collect standard discrete geometry methods.
+- ⚛️ Mirror Oliver Knill's [quantum calculus](https://www.quantumcalculus.org/).
+
+## ⚙️ Installation
+
+```wl
 PacletInstall["https://www.wolframcloud.com/obj/hajek_pavel/DiscreteGeometry.paclet", ForceVersionInstall -> True]
 Needs["WolframInstitute`DiscreteGeometry`"]
 ```
 
+Requires [Wolfram Language](https://www.wolfram.com/language/) 14.3 or higher.
 
-## 📓 Research Notebooks — "Math from code"
+## 📜 Licence
 
-> ⚠️ LLM versions generated directly from the codebase via [ClaudePluginComputationalResearch](https://github.com/WolframInstitute/ClaudePluginComputationalResearch) with no warranty of correctness. Humans are welcome to publish their own versions alongside.
-
-| Notebook | Description | Versions |
-|---|---|---|
-| Simplicial sets and face graphs | Simplicial sets and the face graphs of complexes |  |
-
-The forms-and-cochains and homotopy-transfer notebooks describe symbols that moved; they are listed in the [SyntheticInfrageometry](https://github.com/WolframInstitute/SyntheticInfrageometry) README.
+[MIT](https://opensource.org/license/mit) for the code.
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for the mathematics and the ideas.
