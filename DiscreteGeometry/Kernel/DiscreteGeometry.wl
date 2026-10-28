@@ -235,17 +235,25 @@ Options[ComplexGraph] = Options[FaceGraph] = Options[Graph]
 
 ComplexGraph[g : {___List}, opts : OptionsPattern[]] := Graph[ComplexVertexList[g], UndirectedEdge @@@ SimplexList[g, {1}], opts]
 
-FaceGraph[g : {___List}, opts : OptionsPattern[]] :=
+FaceGraph[g : {___List}, opts : OptionsPattern[]] := With[{cells = PositionIndex[g]},
     Graph[
         g,
-        Catenate[Thread[UndirectedEdge[Subsets[#, {1, Length[#] - 1}], #], List, 1] & /@ g],
+        Catenate[Thread[UndirectedEdge[Select[Subsets[#, {1, Length[#] - 1}], KeyExistsQ[cells, #] &], #], List, 1] & /@ g],
         opts
     ]
+]
 
 
 BarycentricRefinement[g : {___List}] := GraphComplex[FaceGraph[g]]
 
 BarycentricRefinement[g_ ? GraphQ, opts : OptionsPattern[]] := FaceGraph[GraphComplex[g], opts]
+
+BarycentricRefinement[g_ ? GraphQ, {p_Integer}, opts : OptionsPattern[]] := BarycentricRefinement[g, FindCycle[g, {p}, All], opts]
+
+BarycentricRefinement[g_ ? GraphQ, cycles : {{__UndirectedEdge} ..}, opts : OptionsPattern[]] := BarycentricRefinement[g, Union @@@ Map[List @@ # &, cycles, {2}], opts]
+
+BarycentricRefinement[g_ ? GraphQ, cells : {___List}, opts : OptionsPattern[]] :=
+    FaceGraph[Union[List /@ VertexList[g], Sort /@ List @@@ EdgeList[g], Sort /@ cells], opts]
 
 BarycentricRefinement[x_, n_Integer, opts : OptionsPattern[]] := Nest[BarycentricRefinement[#, opts] &, x, n]
 

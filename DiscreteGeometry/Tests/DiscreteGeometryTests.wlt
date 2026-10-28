@@ -357,6 +357,48 @@ VerificationTest[
     TestID -> "BarycentricRefinement-Finer"
 ]
 
+VerificationTest[
+    EdgeCount[FaceGraph[triangle]],
+    12,
+    TestID -> "FaceGraph-Triangle-EdgeCount"
+]
+
+VerificationTest[
+    {VertexCount[#], EdgeCount[#]} & @ FaceGraph[Append[square, {1, 2, 3, 4}]],
+    {9, 16},
+    TestID -> "FaceGraph-SquareCell"
+]
+
+VerificationTest[
+    {SimplexCardinalities[#], ComplexEulerCharacteristic[#]} & @ GraphComplex[BarycentricRefinement[GridGraph[{3, 3}], {4}]],
+    {{25, 56, 32}, 1},
+    TestID -> "BarycentricRefinement-SquareCells"
+]
+
+VerificationTest[
+    IsomorphicGraphQ[BarycentricRefinement[WheelGraph[7], {3}], BarycentricRefinement[WheelGraph[7]]],
+    True,
+    TestID -> "BarycentricRefinement-TrianglesAreCliques"
+]
+
+VerificationTest[
+    Length /@ FindIndecomposableCycles[WheelGraph[7]],
+    {3, 3, 3, 3, 3, 3},
+    TestID -> "FindIndecomposableCycles-Wheel"
+]
+
+VerificationTest[
+    Counts[Length /@ FindIndecomposableCycles[GraphProduct[CycleGraph[6], CycleGraph[6], "Cartesian"]]],
+    <|4 -> 36, 6 -> 12|>,
+    TestID -> "FindIndecomposableCycles-Torus"
+]
+
+VerificationTest[
+    Counts[Length /@ FindIndecomposableCycles[GridGraph[{3, 3, 3}]]],
+    <|4 -> 36|>,
+    TestID -> "FindIndecomposableCycles-CubicGrid"
+]
+
 (* ===== 10. Matrices ===== *)
 
 VerificationTest[
